@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int section;
+    float marks;
+
+public:
+    Student(string n, int sec, float m) {
+        name = n;
+        section = sec;
+        marks = m;
+    }
+    void displayDetails() {
+        cout << "Name: " << name << ", Section: " << section << ", Marks: " << marks << endl;
+    }
+    float getMarks() {
+        return marks;
+    }
+    int getSection() {
+        return section;
+    }
+};
+
+int main() {
+    Student students[10]; 
+    string name;
+    int section;
+    float marks;
+    for (int i = 0; i < 10; i++) {
+        cout << "Enter details for student " << i + 1 << ":" << endl;
+        cout << "Name: ";
+        cin >> name;
+        cout << "Section (1 for Section A, 2 for Section B): ";
+        cin >> section;
+        cout << "Marks: ";
+        cin >> marks;
+        students[i] = Student(name, section, marks);  
+    }
+    cout << "\nDetails of all students:\n";
+    for (int i = 0; i < 10; i++) {
+        students[i].displayDetails();
+    }
+    float totalMarksSectionA = 0, totalMarksSectionB = 0;
+
+    for (int i = 0; i < 10; i++) {
+        if (students[i].getSection() == 1) {
+            totalMarksSectionA += students[i].getMarks();
+        } else if (students[i].getSection() == 2) {
+            totalMarksSectionB += students[i].getMarks();
+        }
+    }
+
+    cout << "\nTotal marks for Section A (5 students): " << totalMarksSectionA << endl;
+    
+    cout << "\nTotal marks for Section B (5 students): " << totalMarksSectionB << endl;
+
+    return 0;
+}
