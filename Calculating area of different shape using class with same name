@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Shape {
+public:
+    float area(float length, float breadth) {
+        return length * breadth;
+    }
+    float area(float base, float height, bool isTriangle) {
+        return 0.5 * base * height;
+    }
+    float area(float radius) {
+        return M_PI * radius * radius;
+    }
+};
+
+int main() {
+    Shape shape;
+    float length = 10.0, breadth = 5.0;
+    cout << "Area of Rectangle: " << shape.area(length, breadth) << endl;
+    float base = 6.0, height = 4.0;
+    cout << "Area of Triangle: " << shape.area(base, height, true) << endl;
+    float radius = 7.0;
+    cout << "Area of Circle: " << shape.area(radius) << endl;
+
+    return 0;
+}
