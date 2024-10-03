@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class SimpleInterest {
+private:
+    float principal;
+    float time;
+    float rate;
+
+public:
+    SimpleInterest(float p, float t, float r = 15.0) {
+        principal = p;
+        time = t;
+        rate = r;
+    }
+    float calculateInterest() {
+        return (principal * time * rate) / 100;
+    }
+    void displayInterest() {
+        float interest = calculateInterest();
+        cout << "Simple Interest is: " << interest << endl;
+    }
+};
+
+int main() {
+    float p, t;
+    cout << "Enter the principal amount: ";
+    cin >> p;
+    cout << "Enter the time (in years): ";
+    cin >> t;
+    SimpleInterest si(p, t);
+    si.displayInterest();
+
+    return 0;
+}
